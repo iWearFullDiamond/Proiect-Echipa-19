@@ -52,3 +52,9 @@ export function getAllStudents() {
   return stud.all();
 }
 
+export function deleteStudents(id) {
+  const stmt = db.prepare("DELETE FROM inscrieri WHERE id = ?");
+  return stmt.run(id);
+}
+
+
