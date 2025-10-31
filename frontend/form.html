@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+   <title>Formular inscriere</title>
+  <style>
+    body {
+      font-family: system-ui, sans-serif;
+      background-color: #0f172a;
+      color: #f8fafc;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      background-color: #1e293b;
+      padding: 2rem;
+      border-radius: 1rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4);
+      width: min(400px, 90vw);
+      display: flex;
+      flex-direction: column;
+      gap: 1rem;
+    }
+
+    h1 {
+      text-align: center;
+      margin-bottom: 0.5rem;
+      color: #38bdf8;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.3rem;
+      font-weight: 600;
+    }
+
+    input,
+    select {
+      width: 100%;
+      padding: 0.6rem 0.8rem;
+      border: 1px solid #475569;
+      border-radius: 0.5rem;
+      background-color: #0f172a;
+      color: #f8fafc;
+      font-size: 1rem;
+    }
+
+    button,
+    input[type="submit"],
+    input[type="reset"] {
+      background-color: #38bdf8;
+      color: #0f172a;
+      border: none;
+      border-radius: 0.5rem;
+      padding: 0.7rem 1rem;
+      font-size: 1rem;
+      font-weight: 600;
+      cursor: pointer;
+      transition: background-color 0.2s ease-in-out;
+    }
+
+    button:hover,
+    input[type="submit"]:hover,
+    input[type="reset"]:hover {
+      background-color: #7dd3fc;
+    }
+
+    .buttons {
+      display: flex;
+      justify-content: space-between;
+      margin-top: 0.5rem;
+    }
+  </style>
+</head>
+
+<body>
+  <form action="/submit" method="POST">
+    <h1>Registration Form</h1>
+
+    <div>
+      <label for="prenume">Prenume</label>
+      <input type="text" id="prenume" name="prenume" required>
+    </div>
+
+    <div>
+      <label for="nume">Nume de Familie</label>
+      <input type="text" id="nume" name="nume" required>
+    </div>
+
+    <div>
+      <label for="email">Email</label>
+      <input type="email" id="email" name="email">
+    </div>
+
+    <div>
+      <label for="phone">Phone</label>
+      <input type="tel" id="phone" name="phone">
+    </div>
+
+    <div>
+      <label for="facultate">Facultate</label>
+      <select id="facultate" name="facultate">
+        <option value="Administrarea Afacerilor">Administrarea Afacerilor</option>
+        <option value="Administratie si Management Public">Administratie si Management Public</option>
+        <option value="Business si Turism">Business si Turism</option>
+        <option value="Cibernetica, Statistica si Informatica Economica">Cibernetica, Statistica si Informatica Economica</option>
+        <option value="Contabilitate si Informatica de Gestiune">Contabilitate si Informatica de Gestiune</option>
+        <option value="Economie si Comunicare in Afaceri">Economie si Comunicare in Afaceri</option>
+        <option value="Economie Agroalimentara si a Mediului">Economie Agroalimentara si a Mediului</option>
+        <option value="Finante, Asigurari, Banci si Burse de Valori">Finante, Asigurari, Banci si Burse de Valori</option>
+        <option value="Management">Management</option>
+        <option value="Marketing">Marketing</option>
+        <option value="Relatii Economice Internationale">Relatii Economice Internationale</option>
+      </select>
+    </div>
+
+    <div>
+      <label for="specializare">Specializare</label>
+      <input type="text" id="specializare" name="specializare" required>
+    </div>
+
+    <div>
+      <label for="an_studiu">An de Studiu</label>
+      <input type="number" id="an_studiu" name="an_studiu" min="1" max="3" value="1">
+    </div>
+
+    <div class="buttons">
+      <input type="reset" value="Reset">
+      <input type="submit" value="Submit">
+    </div>
+  </form>
+</body>
+</html>
