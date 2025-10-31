@@ -3,8 +3,7 @@ import path from "path";
 import { fileURLToPath } from "url";
 import { addStudent, getAllStudents, deleteStudents } from "./database.js";
 
-const app = express();
-app.use(express.json());
+const app = express()
 app.use(express.urlencoded({ extended: true }));
 
 const PORT = 3000;
@@ -55,15 +54,15 @@ app.post("/submit", (req, res) => {
     return res.send("Email invalid! Te rugam sa folosesti un format corect (ex: nume@domeniu.com)");
   }
 
-   if (!RegexTel.test(phone)) {
+   if (phone && !RegexTel.test(phone)) {
     return res.send("Numarul de telefon contine caractere invalide!");
   }
 
-   if (!RegexLitere.text(facultate)) {
+   if (!RegexLitere.test(facultate)) {
     return res.send("Facultatea contine caractere invalide!");
   }
 
-  if (!RegexLitere.text(specializare)) {
+  if (!RegexLitere.test(specializare)) {
     return res.send("Specializarea contine caractere invalide!");
   }
 
