@@ -1,7 +1,9 @@
 import express from "express";
 import path from "path";
 import { fileURLToPath } from "url";
-import fs from "fs";
+import { addStudent, getAllStudents } from "./database.js";
+
+
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
@@ -24,49 +26,40 @@ app.get("/form", (_req, res) => {
   res.sendFile(path.join(frontendDir, "form.html"));
 });
 
-//Colectat date 
+// Colectat date 
 app.post("/submit", (req, res) => {
-  // req.body contine toate campurile din formular
-  console.log(req.body);
-
-  const { prenume, nume, email, phone, facultate, specializare, an_studiu } = req.body;
-
-  // Verificam ca avem minim cateva date
-  if (!prenume || !nume || !email) {
-    return res.send("Te rog completeaza numele si emailul.");
-  }
-
-  // Facem un obiect simplu cu aceste date
-  const student = {
-    id: Date.now(),
+  // ce a trimis formularul
+  const {
     prenume,
     nume,
     email,
     phone,
     facultate,
     specializare,
-    an_studiu,
-  };
+    an_studiu
+  } = req.body;
 
-  // Salvam in inscrieri.json
-  const filePath = path.join(__dirname, "inscrieri.json");
-
-  // Daca nu exista fisierul, il cream gol
-  if (!fs.existsSync(filePath)) {
-    fs.writeFileSync(filePath, "[]", "utf-8");
+  // Validare
+  if (!prenume || !nume || !email) {
+    return res.send("Te rog completeaza numele si emailul.");
   }
 
-  // Citeste ce era deja acolo
-  const data = JSON.parse(fs.readFileSync(filePath, "utf-8"));
-  data.push(student);
+  // Introducem in baza de date
+  const newId = addStudent({
+    prenume,
+    nume,
+    email,
+    phone,
+    facultate,
+    specializare,
+    an_studiu
+  });
 
-  // Rescrie fisierul cu noul array
-  fs.writeFileSync(filePath, JSON.stringify(data, null, 2));
-
-  // Trimite raspuns in browser
+  // Raspuns dupa ce a fost inserat în DB
   res.send(`
     <h2>Inregistrare salvata!</h2>
-    <p>Mutumim, ${prenume} ${nume}!</p>
+    <p>Multumim, ${prenume} ${nume}!</p>
+    <p>ID inscriere in baza de date: <b>${newId}</b></p>
     <a href="/form">Inapoi la formular</a>
   `);
 });
