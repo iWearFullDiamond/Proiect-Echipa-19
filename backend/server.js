@@ -35,7 +35,8 @@ app.post("/submit", (req, res) => {
     phone,
     facultate,
     specializare,
-    an_studiu
+    an_studiu,
+    activitate
   } = req.body;
 
   // Validare backend
@@ -67,7 +68,21 @@ app.post("/submit", (req, res) => {
     return res.send("Specializarea contine caractere invalide!");
   }
 
-  // Introducem in baza de date
+  if (!RegexLitere.test(activitate)) {
+    return res.send("Activitatea contine caractere invalide!");
+  }
+
+  let v = [];
+  v = getAllStudents();
+  for(let i=0; i<v.length; i++){
+    if(v[i].email === email){
+      return res.send("Deja v-ati inscris cu acest email!");
+    }
+    if(v[i].phone === phone){
+      return res.send("Deja v-ati inscris cu acest numar de telefon!");
+    }
+  }
+
   const newId = addStudent({
     prenume,
     nume,
@@ -75,10 +90,10 @@ app.post("/submit", (req, res) => {
     phone,
     facultate,
     specializare,
-    an_studiu
+    an_studiu,
+    activitate
   });
 
-  // Raspuns dupa ce a fost inserat în DB
   res.send(`
     <h2>Inregistrare salvata!</h2>
     <p>Multumim, ${prenume} ${nume}!</p>

@@ -17,14 +17,15 @@ db.exec(`
     phone TEXT,
     facultate TEXT,
     specializare TEXT,
-    an_studiu INTEGER
+    an_studiu INTEGER,
+    activitate TEXT
   );
 `);
 
-export function addStudent({ prenume, nume, email, phone, facultate, specializare, an_studiu }) {
+export function addStudent({ prenume, nume, email, phone, facultate, specializare, an_studiu, activitate }) {
   const stud = db.prepare(`
-    INSERT INTO inscrieri (prenume, nume, email, phone, facultate, specializare, an_studiu)
-    VALUES (?, ?, ?, ?, ?, ?, ?)
+    INSERT INTO inscrieri (prenume, nume, email, phone, facultate, specializare, an_studiu, activitate)
+    VALUES (?, ?, ?, ?, ?, ?, ?, ?)
   `);
 
   const result = stud.run(
@@ -34,7 +35,8 @@ export function addStudent({ prenume, nume, email, phone, facultate, specializar
     phone,
     facultate,
     specializare,
-    an_studiu
+    an_studiu,
+    activitate
   );
 
   return result.lastInsertRowid;
@@ -42,7 +44,7 @@ export function addStudent({ prenume, nume, email, phone, facultate, specializar
 
 export function getAllStudents() {
   const stud = db.prepare(`
-    SELECT id, prenume, nume, email, phone, facultate, specializare, an_studiu
+    SELECT id, prenume, nume, email, phone, facultate, specializare, an_studiu, activitate
     FROM inscrieri
     ORDER BY id ASC
   `);
