@@ -8,16 +8,74 @@
 </head>
 <body>
   <div class="success">
-    <h2>Inscriere reusita!</h2>
+    <h1>Inscriere reusita!</h1>
     <p>Multumim pentru inregistrare, <span id="student-name"></span>!</p>
     <p>ID-ul tau de inregistrare este <b id="student-id"></b>.</p>
     <a href="/form">Inapoi la formular</a>
   </div>
-
+  
   <script>
     const params = new URLSearchParams(window.location.search);
     document.getElementById("student-name").textContent = params.get("name");
     document.getElementById("student-id").textContent = params.get("id");
   </script>
 </body>
+
+<style>
+    body {
+      background-color: #4b2e05;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      margin: 0;
+      font-family: system-ui, sans-serif;
+      color: #f5e6c5;
+    }
+
+    .success {
+      background: linear-gradient(180deg, #8b5a2b, #6b3e15);
+      border: 2px solid #d0b88a;
+      border-radius: 1.2rem;
+      box-shadow: 0 8px 25px rgba(0, 0, 0, 0.5);
+      text-align: center;
+      padding: 2.5rem;
+      width: min(520px, 90vw);
+      color: #fff7e6;
+      text-shadow: 1px 1px 2px #2a1a05;
+    }
+
+    h1 {
+      color: #fffbe9;
+      margin-bottom: 1rem;
+      font-size: 1.8rem;
+    }
+
+    p {
+      font-size: 1.1rem;
+      margin: 0.5rem 0;
+      line-height: 1.6;
+    }
+
+    b {
+      color: #ffe188;
+    }
+
+    a {
+      display: inline-block;
+      margin-top: 1.5rem;
+      text-decoration: none;
+      color: #f5e6c5;
+      background-color: #3e7a32;
+      padding: 0.6rem 1rem;
+      border-radius: 1rem;
+      transition: background-color 0.2s ease-in-out, transform 0.1s ease-in-out;
+      font-weight: 600;
+    }
+
+    a:hover {
+      background-color: #56a34a;
+      transform: translateY(-2px);
+    }
+  </style>
 </html>
