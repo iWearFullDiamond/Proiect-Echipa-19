@@ -94,12 +94,7 @@ app.post("/submit", (req, res) => {
     activitate
   });
 
-  res.send(`
-    <h2>Inregistrare salvata!</h2>
-    <p>Multumim, ${prenume} ${nume}!</p>
-    <p>ID inscriere in baza de date: <b>${newId}</b></p>
-    <a href="/form">Inapoi la formular</a>
-  `);
+  res.redirect(`/success.html?name=${prenume}%20${nume}&id=${newId}`);
 });
 
 // Sterge un student dupa ID din browser

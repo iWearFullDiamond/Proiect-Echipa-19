@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Formular inscriere</title>
+  <link rel="stylesheet" href="formStyle.css">
+</head>
+<body>
+  <div class="success">
+    <h2>Inscriere reusita!</h2>
+    <p>Multumim pentru inregistrare, <span id="student-name"></span>!</p>
+    <p>ID-ul tau de inregistrare este <b id="student-id"></b>.</p>
+    <a href="/form">Inapoi la formular</a>
+  </div>
+
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    document.getElementById("student-name").textContent = params.get("name");
+    document.getElementById("student-id").textContent = params.get("id");
+  </script>
+</body>
+</html>
