@@ -52,8 +52,8 @@ export function getAllStudents() {
 }
 
 export function deleteStudents(id) {
-  const stmt = db.prepare("DELETE FROM inscrieri WHERE id = ?");
-  return stmt.run(id);
+  const stud = db.prepare("DELETE FROM inscrieri WHERE id = ?");
+  return stud.run(id);
 }
 
 
