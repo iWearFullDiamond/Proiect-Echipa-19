@@ -40,7 +40,7 @@ app.post("/submit", (req, res) => {
   } = req.body;
 
   // Validare backend
-  const RegexLitere = /^[A-Za-zĂÂÎȘȚăâîșț]+([ ][A-Za-zĂÂÎȘȚăâîșț]+)*$/;
+  const RegexLitere = /^[A-Za-zĂÂÎȘȚăâîșț]+([ ,][ ]?[A-Za-zĂÂÎȘȚăâîșț]+)*$/;
   const RegexEmail = /^[A-Za-z0-9._]+@[A-Za-z0-9.-]+\.[A-Za-z]{2,}$/;
   const RegexTel = /^\+?[0-9\s\-]{10,20}$/;
 
