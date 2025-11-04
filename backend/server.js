@@ -10,6 +10,7 @@ const PORT = 3000;
 const __filename = fileURLToPath(import.meta.url);
 const __dirname  = path.dirname(__filename);
 const frontendDir = path.resolve(__dirname, "../frontend");
+app.use(express.static(frontendDir));
 
 //Test rapid
 app.get("/api/health", (_req, res) => res.json({ status: "ok" }));
