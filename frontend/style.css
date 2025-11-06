@@ -1,0 +1,155 @@
+
+
+body{
+    margin: 0px;
+    background-color: #A0522D;
+}
+.logo img{
+    width: 100px;
+    align-items: end;
+    position: fixed;
+    left: 1360px;
+    border-radius: 3px;
+    top: 5px;
+
+}
+.Welcoming h1{
+   text-align: center;
+}
+.Welcoming h1 img{
+    width: 250px;
+    height: 100px;
+}
+
+.navbar ul{
+    list-style-type: none;
+    background-color: rgb(40, 36, 36);
+    padding: 0px;
+    margin: 0px;
+    overflow: hidden;
+    display: flex;
+}
+.navbar a{
+    color: white;
+    text-decoration: none;
+    padding: 15px;
+    display: block;
+    text-align: center;
+}
+.navbar a:hover{
+    background-color: rgb(22, 19, 19);
+}
+.navbar li{
+    float: left;
+    padding: auto;
+    
+}
+#Home{
+    border: 10px solid rgb(80, 11, 11);
+   
+ 
+}
+#Home h1{
+    text-align: center;
+}
+#Home img{
+    display: block;
+    margin: auto;
+     
+}
+#AboutUs{
+    border: 10px solid rgb(80, 11, 11);
+}
+#AboutUs h1{
+    text-align: end;
+    padding: 30px;
+}
+#AboutUs h1 img{
+   width: 50px;
+   border-radius: 5px;
+}
+#AboutUs img{
+    width: 25%;
+    height: 300;
+    border-radius: 40px;
+   
+}
+#AboutUs video{
+    border-radius: 40px;
+
+}
+#AboutUs h3{
+    width: 300px;
+    height: 50px;
+    padding: 28px;
+    display: inline-block;
+   
+}
+#Activity{
+     border: 10px solid rgb(80, 11, 11);
+     overflow: hidden;
+}
+#Activity section {
+    width: 100%;
+    float: right;
+   
+}
+#Activity img{
+    width: 300px;
+    height: 350px;
+    padding: 28px;
+    border-radius: 15%;
+}
+#Activity section h3{
+    width: 300px;
+    height: 50px;
+    padding: 28px;
+    display: inline-block;
+
+}
+#Activity button{
+    background-color: #35523c;
+    border-radius: 100px;
+    width: 260px;
+    height: 60px;
+    border: 2px solid rgb(80, 11, 11);
+    cursor: pointer;
+    margin: 25px;
+   
+
+}
+#Activity button a{
+    color: bisque;
+    text-decoration: none;
+     text-align: center;
+}
+
+#Contact{
+    border: 10px solid rgb(80, 11, 11);
+}
+#Contact h2{
+    text-align: center;
+    padding: 30px;
+}
+#Contact h3{
+    text-align: center;
+     list-style-type: none;
+    padding: 30px;
+}
+#Contact h3 img{
+    width: 100px;
+    border-radius: 30px;
+}
+#Contact .icons{
+    padding: 20px;
+    
+}
+#Contact .icons a{
+    color: black;
+    width: 100%;
+   
+}
+#Contact .icons video{
+    width: 80px;
+     border-radius: 40px;
+}
